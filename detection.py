@@ -1,7 +1,7 @@
 # Object detections class
 
 import cv2 as cv
-import time, os, random
+import time, os
 import tensorflow as tf
 import numpy as np
 from tensorflow.keras.utils import get_file # type: ignore
@@ -25,6 +25,10 @@ class Detector:
   def get_model(self, model_url):
      model_file = os.path.basename(model_url)
      self.model_name = model_file[:model_file.index('.')]
+
+     # Ensure the 'saved_models/' directory exists
+     model_dir = os.path.join('saved_models')
+     os.makedirs(model_dir, exist_ok=True)
 
      # Download pretrained model
      get_file(fname=model_file, cache_dir='saved_models', origin=model_url, cache_subdir='checkpoints', extract=True)
