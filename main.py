@@ -6,7 +6,7 @@ from detection import Detector
 # You can get the pre-trained model on https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
 MODEL_URL = "http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v1_fpn_640x640_coco17_tpu-8.tar.gz"
 
-IMG_PATH = "pictures/people_happy.jpg"  #customizable
+IMG_PATH = "pictures/motogp_dataset.jpg"  #customizable
 VID_PATH = "videos/traffic_highways.mp4"    ##customizable
 CLASS_PATH = "object_class_names.txt"   # From COCO dataset
 

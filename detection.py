@@ -54,7 +54,7 @@ class Detector:
      # Set threshold of bounding box
      bbox_index = tf.image.non_max_suppression(bboxs, scores=class_scores, max_output_size=50, iou_threshold=threshold, score_threshold=threshold)
      
-     # Iterate throughout bbox_index
+     #Iterate throughout bbox_index
      if len(bbox_index) != 0:
       for i in bbox_index:
          bbox = tuple(bboxs[i].tolist())
@@ -65,13 +65,17 @@ class Detector:
          class_color = self.color_list[class_index]
          display_text = f"{class_label} {class_confidence}%"
          
-         # Bounding box scale
+         #Bounding box scale
          ymin, xmin, ymax, xmax = bbox
          ymin, xmin, ymax, xmax = (ymin * imgH, xmin * imgW, ymax * imgH, xmax * imgW)
          ymin, xmin, ymax, xmax = int(ymin), int(xmin), int(ymax), int(xmax)
-
+         
+         #box
          cv.rectangle(img_tensor, (xmin, ymin), (xmax, ymax), color=class_color, thickness=2)
-         cv.putText(img_tensor, display_text, (xmin, ymin - 10), cv.FONT_HERSHEY_PLAIN, 1, class_color, 2)
+         #text box
+         (text_width, text_height), baseline = cv.getTextSize(display_text, cv.FONT_HERSHEY_SIMPLEX, 0.7, 2)
+         cv.rectangle(img_tensor, (xmin, ymin - text_height - 10), (xmin + text_width, ymin), class_color, thickness=-1)
+         cv.putText(img_tensor, display_text, (xmin, ymin - 10), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 0), 2)
 
       return img_tensor
 
