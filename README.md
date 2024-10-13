@@ -42,6 +42,3 @@ You can explore various models with different trade-offs between accuracy and sp
   * [SSD MobileNet](https://medium.com/@tauseefahmad12/object-detection-using-mobilenet-ssd-e75b177567ee)
   * [EfficientDet](https://medium.com/@vipas.ai/efficientdet-a-powerful-object-detection-model-50b5ae10113f)
   * [CenterNet](https://medium.com/visionwizard/centernet-objects-as-points-a-comprehensive-guide-2ed9993c48bc)
-
-
-## Log
